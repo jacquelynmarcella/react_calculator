@@ -3,16 +3,35 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      fieldOne: 0,
+      fieldTwo: 0
+    }
+    this.newTotal = this.newTotal.bind(this);
+  }
+
+  newTotal(event){
+    let newValue = parseInt(event.target.value); 
+    if(!newValue) {
+      newValue = 0;
+    }
+    const currentName = event.target.name;
+    this.setState({
+      [currentName]: newValue
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="add">
+        <input type="text" name="fieldOne" onChange={(event)=>this.newTotal(event)}/>
+        <span>+</span>
+        <input type="text" name="fieldTwo" onChange={(event)=>this.newTotal(event)}/>
+        <span>=</span>
+        <h3>{this.state.fieldOne + this.state.fieldTwo}</h3>
       </div>
     );
   }
