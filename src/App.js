@@ -8,13 +8,13 @@ class App extends Component {
     super(props)
     this.state = {
       fieldOne: 0,
-      fieldTwo: 0
+      fieldTwo: 0,
     }
     this.newTotal = this.newTotal.bind(this);
   }
 
   newTotal(event){
-    let newValue = parseInt(event.target.value); 
+    let newValue = parseFloat(event.target.value); 
     if(!newValue) {
       newValue = 0;
     }
