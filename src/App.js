@@ -28,9 +28,9 @@ class App extends Component {
     return (
       <div className="add">
         <input type="text" name="fieldOne" onChange={(event)=>this.newTotal(event)}/>
-        <span>+</span>
+        <span className="addsign">+</span>
         <input type="text" name="fieldTwo" onChange={(event)=>this.newTotal(event)}/>
-        <span>=</span>
+        <hr />
         <h3>{this.state.fieldOne + this.state.fieldTwo}</h3>
       </div>
     );
